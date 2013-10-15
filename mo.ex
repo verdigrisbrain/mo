@@ -80,6 +80,12 @@ defmodule Mo do
   end
 
   def methods(obj)
+  when obj == Regex
+  when obj == "Regex" do
+    puts_methods_regex
+  end
+
+  def methods(obj)
   when obj == Version 
   when obj == "Version" do
     puts_methods_version
@@ -248,7 +254,7 @@ defmodule Mo do
       "Port",
       #"Process",
       #"Record",
-      #"Regex",
+      "Regex",
       "Set",
       #"Stream",
       "String",
@@ -662,6 +668,24 @@ defmodule Mo do
       "query_decoder"
       ]
     Enum.map functions, &(IO.puts "URI." <> &1)
+  end
+
+  def puts_methods_regex do
+    functions = [
+      "compile",
+      "escape",
+      "groups",
+      "match?",
+      "named_capgures",
+      "opts",
+      "re_pattern",
+      "replace",
+      "run",
+      "scan",
+      "source",
+      "split"
+      ]
+    Enum.map functions, &(IO.puts "Regex." <> &1)
   end
 
   def puts_methods_version do
